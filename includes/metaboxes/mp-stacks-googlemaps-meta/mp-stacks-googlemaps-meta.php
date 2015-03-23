@@ -68,6 +68,11 @@ function mp_stacks_googlemaps_create_meta_box(){
 					'field_id'			=> 'mp_stacks_googlemaps_latitude',
 					'field_title' 	=> __( 'Latitude', 'mp_stacks_googlemaps'),
 					'field_description' 	=> __( 'At which Latitude should this Map Begin? Not sure how to find this?', 'mp_stacks_googlemaps' ) . __( 'Not sure how to find this? To get the coordinates of a place you find on the map with your browser, like Chrome, Firefox, or Internet Explorer:
+<p>Option 1:</p> 					
+<ol>
+	<li>Use a Geocoding service like <a href-"http://www.latlong.net/" target="_blank">http://www.latlong.net/</a></li>
+</ol>	
+Option 2:			
 <ol>
 <li><a href="https://maps.google.com" target="_blank">Open Google Maps (click here)</a>.</li>
 <li>Right-click the place or area on the map.</li>
@@ -81,6 +86,11 @@ function mp_stacks_googlemaps_create_meta_box(){
 					'field_id'			=> 'mp_stacks_googlemaps_longitude',
 					'field_title' 	=> __( 'Longitude', 'mp_stacks_googlemaps'),
 					'field_description' 	=> __( 'At which Longitude should this Map Begin? Not sure how to find this?', 'mp_stacks_googlemaps' ) . __( 'Not sure how to find this? To get the coordinates of a place you find on the map with your browser, like Chrome, Firefox, or Internet Explorer:
+<p>Option 1:</p> 					
+<ol>
+	<li>Use a Geocoding service like <a href-"http://www.latlong.net/" target="_blank">http://www.latlong.net/</a></li>
+</ol>	
+Option 2:				
 <ol>
 <li><a href="https://maps.google.com" target="_blank">Open Google Maps (click here)</a>.</li>
 <li>Right-click the place or area on the map.</li>
@@ -89,6 +99,7 @@ function mp_stacks_googlemaps_create_meta_box(){
 </ol>', 'mp_stacks_googlemaps' ) . '<img src="' . plugins_url( 'assets/images/how-to-find-longitude.jpg', dirname( dirname( dirname( __FILE__ ) ) ) ) . '" width="300" height="auto">',
 					'field_type' 	=> 'textbox',
 					'field_value' 	=> '',
+					'field_placeholder' => 'longitude',
 			),
 			array(
 					'field_id'			=> 'mp_stacks_googlemaps_zoom',
@@ -130,7 +141,7 @@ function mp_stacks_googlemaps_create_meta_box(){
 				array(
 						'field_id'			=> 'marker_latitude',
 						'field_title' 	=> __( 'Marker Latitude (Required)', 'mp_stacks_googlemaps'),
-						'field_description' => __( 'At which Latitude should this Marker sit? Find this on Google Maps:', 'mp_stacks_googlemaps' ) . ' <a href="https://maps.google.com" target="_blank">Open Google Maps (click here)</a>.',
+						'field_description' => __( 'At which Latitude should this Marker sit? Find this on Google Maps:', 'mp_stacks_googlemaps' ) . ' <a href="http://www.latlong.net/" target="_blank">Open latlong.net (click here)</a> OR <a href="https://maps.google.com" target="_blank">Open Google Maps (click here)</a>.',
 						'field_type' 	=> 'textbox',
 						'field_value' 	=> '',
 						'field_repeater' => 'mp_stacks_googlemaps_markers'
@@ -138,7 +149,7 @@ function mp_stacks_googlemaps_create_meta_box(){
 				array(
 						'field_id'			=> 'marker_longitude',
 						'field_title' 	=> __( 'Marker Longitude (Required)', 'mp_stacks_googlemaps'),
-						'field_description' => __( 'At which Longitude should this Marker sit? Find this on Google Maps:', 'mp_stacks_googlemaps' ) . ' <a href="https://maps.google.com" target="_blank">Open Google Maps (click here)</a>.',
+						'field_description' => __( 'At which Longitude should this Marker sit? Find this on Google Maps:', 'mp_stacks_googlemaps' ) . ' <a href="http://www.latlong.net/" target="_blank">Open latlong.net (click here)</a> OR <a href="https://maps.google.com" target="_blank">Open Google Maps (click here)</a>.',
 						'field_type' 	=> 'textbox',
 						'field_value' 	=> '',
 						'field_repeater' => 'mp_stacks_googlemaps_markers'
