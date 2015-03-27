@@ -70,7 +70,7 @@ function mp_stacks_googlemaps_create_meta_box(){
 					'field_description' 	=> __( 'At which Latitude should this Map Begin? Not sure how to find this?', 'mp_stacks_googlemaps' ) . __( 'Not sure how to find this? To get the coordinates of a place you find on the map with your browser, like Chrome, Firefox, or Internet Explorer:
 <p>Option 1:</p> 					
 <ol>
-	<li>Use a Geocoding service like <a href-"http://www.latlong.net/" target="_blank">http://www.latlong.net/</a></li>
+	<li>Use a Geocoding service like <a href="http://www.latlong.net/" target="_blank">http://www.latlong.net/</a></li>
 </ol>	
 Option 2:			
 <ol>
@@ -88,7 +88,7 @@ Option 2:
 					'field_description' 	=> __( 'At which Longitude should this Map Begin? Not sure how to find this?', 'mp_stacks_googlemaps' ) . __( 'Not sure how to find this? To get the coordinates of a place you find on the map with your browser, like Chrome, Firefox, or Internet Explorer:
 <p>Option 1:</p> 					
 <ol>
-	<li>Use a Geocoding service like <a href-"http://www.latlong.net/" target="_blank">http://www.latlong.net/</a></li>
+	<li>Use a Geocoding service like <a href="http://www.latlong.net/" target="_blank">http://www.latlong.net/</a></li>
 </ol>	
 Option 2:				
 <ol>
