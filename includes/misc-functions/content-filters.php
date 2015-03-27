@@ -46,7 +46,7 @@ function mp_stacks_brick_content_output_googlemaps($default_content_output, $mp_
 		return __( 'OOPS! You haven\'t entered an API Key for Google Maps yet! Follow the steps to get one by', 'mp_stacks_googlemaps' ) . ' <a href="https://developers.google.com/maps/documentation/javascript/tutorial#api_key" target="_blank">' . __( 'clicking here', 'mp_stacks_googlemaps' ) . '</a>.';
 	}
 	
-	//Pul in the existing MP Stacks inline js string which is output the Footer.
+	//Pull in the existing MP Stacks inline js string which is output the Footer.
 	global $mp_stacks_footer_inline_js;
 		
 	//Enqueue the script from Google Maps in the footer
@@ -65,6 +65,7 @@ function mp_stacks_brick_content_output_googlemaps($default_content_output, $mp_
 			directionsDisplay_' . $post_id . ' = new google.maps.DirectionsRenderer();
 			 
 			var mapOptions = {
+				scrollwheel: false,
 				center: { lat: ' . $googlemaps_latitude . ', lng: ' . $googlemaps_longitude . '},
 				zoom: ' . $googlemaps_zoom . '
 			};
