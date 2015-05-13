@@ -4,7 +4,7 @@ Donate link: http://mintplugins.com/
 Tags: message bar, header
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 1.0.0.2
+Stable tag: 1.0.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,6 +30,9 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 
 
 == Changelog ==
+
+= 1.0.0.3 = May 12, 2015
+* Bug fix: was adding 2 plus signs sidebyside if no custom marker icon used and no email. Error was "Invalid left-hand side expression in postfix operation".
 
 = 1.0.0.2 = April 1, 2015
 * Fixed bug where no marker icon exists.
