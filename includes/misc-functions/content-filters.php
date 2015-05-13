@@ -134,16 +134,16 @@ function mp_stacks_brick_content_output_googlemaps($default_content_output, $mp_
 						if ( !empty(  $marker['marker_phone_number'] ) ){
 						   $mp_stacks_footer_inline_js .= '\'<div id="mp-stacks-googlemaps-infowindow-phone"><a href="tel:\'+' . json_encode( $marker['marker_phone_number'] ) . '+\'">\'+' . json_encode( $marker['marker_phone_number'] ) . '+\'</a></div>\'+';
 						}
-						if ( !empty(  $marker['marker_phone_number'] ) ){
-						  $mp_stacks_footer_inline_js .= '\'<div id="mp-stacks-googlemaps-infowindow-email"><a href="mailto:\'+' . json_encode( $marker['marker_email'] ) . '+\'">\'+' . json_encode( $marker['marker_email'] ) . '+\'</a></div>\'';
+						if ( !empty(  $marker['marker_email'] ) ){
+						  $mp_stacks_footer_inline_js .= '\'<div id="mp-stacks-googlemaps-infowindow-email"><a href="mailto:\'+' . json_encode( $marker['marker_email'] ) . '+\'">\'+' . json_encode( $marker['marker_email'] ) . '+\'</a></div>\'+';
 						}
 						
 						if ( isset( $image_attributes[2] ) ){
-					  		$mp_stacks_footer_inline_js .= '+\'</div>\',
+					  		$mp_stacks_footer_inline_js .= '\'</div>\',
 					  		pixelOffset: new google.maps.Size(0, ' . -($image_attributes[2] / 2) . ')';
 						}
 						else{
-					  		$mp_stacks_footer_inline_js .= '+\'</div>\',
+					  		$mp_stacks_footer_inline_js .= '\'</div>\',
 					  		pixelOffset: new google.maps.Size(0, ' . -30 . ')';
 						}
 						
