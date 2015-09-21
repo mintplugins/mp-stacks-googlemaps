@@ -31,7 +31,8 @@ function mp_stacks_googlemaps_create_meta_box(){
 		'metabox_title' => __( '"GoogleMaps" Content-Type', 'mp_stacks_googlemaps'), 
 		'metabox_posttype' => 'mp_brick', 
 		'metabox_context' => 'advanced', 
-		'metabox_priority' => 'low' 
+		'metabox_priority' => 'low' ,
+		'metabox_content_via_ajax' => true,
 	);
 	
 	/**
@@ -67,36 +68,16 @@ function mp_stacks_googlemaps_create_meta_box(){
 			array(
 					'field_id'			=> 'mp_stacks_googlemaps_latitude',
 					'field_title' 	=> __( 'Latitude', 'mp_stacks_googlemaps'),
-					'field_description' 	=> __( 'At which Latitude should this Map Begin? Not sure how to find this?', 'mp_stacks_googlemaps' ) . __( 'Not sure how to find this? To get the coordinates of a place you find on the map with your browser, like Chrome, Firefox, or Internet Explorer:
-<p>Option 1:</p> 					
-<ol>
-	<li>Use a Geocoding service like <a href="http://www.latlong.net/" target="_blank">http://www.latlong.net/</a></li>
-</ol>	
-Option 2:			
-<ol>
-<li><a href="https://maps.google.com" target="_blank">Open Google Maps (click here)</a>.</li>
-<li>Right-click the place or area on the map.</li>
-<li>Select What\'s here?</li>
-<li>Under the search box, an info card with coordinates will appear.</li>
-</ol>', 'mp_stacks_googlemaps' ) . '<img src="' . plugins_url( 'assets/images/how-to-find-latitude.jpg', dirname( dirname( dirname( __FILE__ ) ) ) ) . '" width="300" height="auto">',
+					'field_description' 	=> __( 'At which Latitude should this Map Begin? Not sure how to find this? To get the coordinates of a place you find on the map with your browser, like Chrome, Firefox, or Internet Explorer:
+<p>Use a Geocoding service like <a href="http://www.latlong.net/" target="_blank">http://www.latlong.net/</a></li>', 'mp_stacks_googlemaps' ),
 					'field_type' 	=> 'textbox',
 					'field_value' 	=> '',
 			),
 			array(
 					'field_id'			=> 'mp_stacks_googlemaps_longitude',
 					'field_title' 	=> __( 'Longitude', 'mp_stacks_googlemaps'),
-					'field_description' 	=> __( 'At which Longitude should this Map Begin? Not sure how to find this?', 'mp_stacks_googlemaps' ) . __( 'Not sure how to find this? To get the coordinates of a place you find on the map with your browser, like Chrome, Firefox, or Internet Explorer:
-<p>Option 1:</p> 					
-<ol>
-	<li>Use a Geocoding service like <a href="http://www.latlong.net/" target="_blank">http://www.latlong.net/</a></li>
-</ol>	
-Option 2:				
-<ol>
-<li><a href="https://maps.google.com" target="_blank">Open Google Maps (click here)</a>.</li>
-<li>Right-click the place or area on the map.</li>
-<li>Select What\'s here?</li>
-<li>Under the search box, an info card with coordinates will appear.</li>
-</ol>', 'mp_stacks_googlemaps' ) . '<img src="' . plugins_url( 'assets/images/how-to-find-longitude.jpg', dirname( dirname( dirname( __FILE__ ) ) ) ) . '" width="300" height="auto">',
+					'field_description' 	=> __( 'At which Longitude should this Map Begin? Not sure how to find this? To get the coordinates of a place you find on the map with your browser, like Chrome, Firefox, or Internet Explorer:
+<p>Use a Geocoding service like <a href="http://www.latlong.net/" target="_blank">http://www.latlong.net/</a></li>', 'mp_stacks_googlemaps' ),
 					'field_type' 	=> 'textbox',
 					'field_value' 	=> '',
 					'field_placeholder' => 'longitude',
@@ -217,4 +198,5 @@ Option 2:
 	global $mp_stacks_googlemaps_meta_box;
 	$mp_stacks_googlemaps_meta_box = new MP_CORE_Metabox($mp_stacks_googlemaps_add_meta_box, $mp_stacks_googlemaps_items_array);
 }
-add_action('mp_brick_metabox', 'mp_stacks_googlemaps_create_meta_box');
+add_action('mp_brick_ajax_metabox', 'mp_stacks_googlemaps_create_meta_box');
+add_action('wp_ajax_mp_stacks_googlemaps_metabox_content', 'mp_stacks_googlemaps_create_meta_box');
