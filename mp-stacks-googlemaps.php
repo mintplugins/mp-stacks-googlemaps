@@ -3,7 +3,7 @@
 Plugin Name: MP Stacks + GoogleMaps
 Plugin URI: http://mintplugins.com
 Description: Display custom Google Maps in Bricks from MP Stacks.
-Version: 1.0.0.3
+Version: 1.0.0.4
 Author: Mint Plugins
 Author URI: https://mintplugins.com
 Text Domain: mp_stacks_googlemaps
@@ -34,7 +34,7 @@ License: GPL2
 */
 // Plugin version
 if( !defined( 'MP_STACKS_GOOGLEMAPS_VERSION' ) )
-	define( 'MP_STACKS_GOOGLEMAPS_VERSION', '1.0.0.3' );
+	define( 'MP_STACKS_GOOGLEMAPS_VERSION', '1.0.0.4' );
 
 // Plugin Folder URL
 if( !defined( 'MP_STACKS_GOOGLEMAPS_PLUGIN_URL' ) )
