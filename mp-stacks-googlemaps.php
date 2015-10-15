@@ -140,9 +140,9 @@ function mp_stacks_googlemaps_include_files(){
 		require( MP_STACKS_GOOGLEMAPS_PLUGIN_DIR . 'includes/updater/mp-stacks-googlemaps-update.php' );
 		
 		/**
-		 * enqueue scripts
+		 * Misc Functions
 		 */
-		//require( MP_STACKS_GOOGLEMAPS_PLUGIN_DIR . 'includes/misc-functions/admin-enqueue-scripts.php' );
+		require( MP_STACKS_GOOGLEMAPS_PLUGIN_DIR . 'includes/misc-functions/misc-functions.php' );
 		
 		/**
 		 * Media Filters for googlemaps
