@@ -49,26 +49,22 @@ function mp_stacks_brick_content_output_googlemaps($default_content_output, $mp_
 	
 	$googlemaps_output = NULL;
 	
-	$google_maps_api_key = mp_core_get_post_meta( $post_id, 'mp_stacks_googlemaps_api_key', NULL );
-	$googlemaps_latitude = mp_core_get_post_meta( $post_id, 'mp_stacks_googlemaps_latitude', '40.7127' );//Default to new york
-	$googlemaps_longitude = mp_core_get_post_meta( $post_id, 'mp_stacks_googlemaps_longitude', '-74.0059' );//Default to new york
+	//$google_maps_api_key = mp_core_get_post_meta( $post_id, 'mp_stacks_googlemaps_api_key', NULL );
 	$googlemaps_show_directions = mp_core_get_post_meta_checkbox( $post_id, 'mp_stacks_googlemaps_show_directions', false );
-	$googlemaps_zoom = mp_core_get_post_meta( $post_id, 'mp_stacks_googlemaps_zoom', 80 );
-	$googlemaps_zoom = round( $googlemaps_zoom / 7 );
 	
 	//Get the array of markers we should show on this map
 	$markers = mp_core_get_post_meta( $post_id, 'mp_stacks_googlemaps_markers', NULL );
 	
-	//If no API Key has been entered
-	if ( empty( $google_maps_api_key ) ){
-		//Output a helpful error message
-		return __( 'OOPS! You haven\'t entered an API Key for Google Maps yet! Follow the steps to get one by', 'mp_stacks_googlemaps' ) . ' <a href="https://developers.google.com/maps/documentation/javascript/tutorial#api_key" target="_blank">' . __( 'clicking here', 'mp_stacks_googlemaps' ) . '</a>.';
-	}
-	
-	wp_enqueue_script( 'mp_stacks_googlemaps_custom_js', esc_url( add_query_arg( array( 'mp_stacks_googlemaps_brick_id' => $post_id ), get_bloginfo( 'wpurl' ) ) ) , array( 'jquery', 'mp_stacks_front_end_js' ), MP_STACKS_GOOGLEMAPS_VERSION, true );
+	wp_enqueue_script( 'mp_stacks_googlemaps_custom_js', esc_url( add_query_arg( array( 
+		'mp_stacks_googlemaps_brick_id' => $post_id, 
+		'mp_stacks_refresh_this_script_upon_brick_update' => true 
+	), get_bloginfo( 'wpurl' ) ) ) , array( 'jquery', 'mp_stacks_front_end_js' ), get_post_time( 'U', true, $post_id ), true );
 	
 	//Enqueue the script from Google Maps in the footer
-	wp_enqueue_script( 'mp_stacks_googlemaps_js', 'https://maps.googleapis.com/maps/api/js?key=' . $google_maps_api_key . '&callback=mp_stacks_googlemaps_initialize' , array( 'jquery', 'mp_stacks_front_end_js', 'mp_stacks_googlemaps_custom_js' ), MP_STACKS_GOOGLEMAPS_VERSION, true );
+	//wp_enqueue_script( 'mp_stacks_googlemaps_js', 'https://maps.googleapis.com/maps/api/js?key=' . $google_maps_api_key . '&callback=mp_stacks_googlemaps_initialize' , array( 'jquery', 'mp_stacks_front_end_js', 'mp_stacks_googlemaps_custom_js' ), MP_STACKS_GOOGLEMAPS_VERSION, true );
+	
+	//Enqueue the script from Google Maps in the footer - without using the Google Maps Api Key
+	wp_enqueue_script( 'mp_stacks_googlemaps_js', 'https://maps.googleapis.com/maps/api/js?callback=mp_stacks_googlemaps_initialize' , array( 'jquery', 'mp_stacks_front_end_js', 'mp_stacks_googlemaps_custom_js' ), MP_STACKS_GOOGLEMAPS_VERSION, true );
 	
 	//Get the height of the GoogleMaps
 	$googlemaps_height = mp_core_get_post_meta( $post_id, 'googlemaps_height', 500 );
