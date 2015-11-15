@@ -42,47 +42,6 @@ function mp_stacks_googlemaps_create_meta_box(){
 	$mp_stacks_googlemaps_items_array = array(
 		
 			array(
-					'field_id'			=> 'mp_stacks_googlemaps_api_key',
-					'field_title' 	=> __( 'Google Maps API Key', 'mp_stacks_googlemaps'),
-					'field_description' 	=> __( 'Enter your Google Maps API Key. Don\'t Have one? 
-					To create your API key:
-						<ol>
-						
-							<li><a href="https://console.developers.google.com/project" target="_blank">Click here</a> and then click on "Create Project". Call it anything you like. </li>
-							<li>Once you\'ve created the "Project", Click "Enable an API" under "Boost your app with a Google API". </li>
-							<li>Enable the "Google Maps JavaScript API v3" (you may have to scroll down to find it). </li>
-							<li>Go to <a href="https://console.developers.google.com/project" target="_blank">https://console.developers.google.com/project</a> and click on the "Project" you just made.</li>
-							<li>On the left-hand side, under "APIs and Auth", click on "Credentials".</li>
-							<li>Under "Public API access" click on "Create New Key".</li>
-							<li>Choose "Browser Key" in the "Create New Key" popup.</li>
-							<li>Leave the text box blank under "ACCEPT REQUESTS FROM THESE HTTP REFERERS (WEB SITES)" in the popup.</li>
-							<li>Copy the string of text listed beside "API KEY" and paste it below.</li>
-							<li>That\'s it! The rest of the heavy-lifting is done by the MP Stacks + GoogleMaps Add-On.</li>
-				
-				
-						</ol>', 'mp_stacks_googlemaps' ),
-					'field_type' 	=> 'textbox',
-					'field_value' 	=> '',
-					'field_placeholder' 	=> __( 'Your Google Maps API Key', 'mp_stacks_googlemaps' ),
-			),
-			array(
-					'field_id'			=> 'mp_stacks_googlemaps_latitude',
-					'field_title' 	=> __( 'Latitude', 'mp_stacks_googlemaps'),
-					'field_description' 	=> __( 'At which Latitude should this Map Begin? Not sure how to find this? To get the coordinates of a place you find on the map with your browser, like Chrome, Firefox, or Internet Explorer:
-<p>Use a Geocoding service like <a href="http://www.latlong.net/" target="_blank">http://www.latlong.net/</a></li>', 'mp_stacks_googlemaps' ),
-					'field_type' 	=> 'textbox',
-					'field_value' 	=> '',
-			),
-			array(
-					'field_id'			=> 'mp_stacks_googlemaps_longitude',
-					'field_title' 	=> __( 'Longitude', 'mp_stacks_googlemaps'),
-					'field_description' 	=> __( 'At which Longitude should this Map Begin? Not sure how to find this? To get the coordinates of a place you find on the map with your browser, like Chrome, Firefox, or Internet Explorer:
-<p>Use a Geocoding service like <a href="http://www.latlong.net/" target="_blank">http://www.latlong.net/</a></li>', 'mp_stacks_googlemaps' ),
-					'field_type' 	=> 'textbox',
-					'field_value' 	=> '',
-					'field_placeholder' => 'longitude',
-			),
-			array(
 					'field_id'			=> 'mp_stacks_googlemaps_zoom',
 					'field_title' 	=> __( 'Map Zoom Level', 'mp_stacks_googlemaps'),
 					'field_description' 	=> __( 'How Zoomed in should this map be?', 'mp_stacks_googlemaps' ),
