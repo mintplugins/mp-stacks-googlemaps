@@ -4,7 +4,7 @@ Donate link: http://mintplugins.com/
 Tags: message bar, header
 Requires at least: 3.5
 Tested up to: 4.3
-Stable tag: 1.0.0.5
+Stable tag: 1.0.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,6 +30,10 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 
 
 == Changelog ==
+
+= 1.0.0.6 = November 14, 2015
+* Removed all API Key things from the plugin as they are not needed for the functionality.
+* Removed the 'double' lat/long settings from the plugin and set the map position to use the first marker as the map starting position.
 
 = 1.0.0.5 = October 15, 2015
 * Changed inline js to be enqueued so it is in correct order
