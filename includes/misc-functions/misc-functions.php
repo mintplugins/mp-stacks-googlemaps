@@ -42,6 +42,9 @@ function mp_stacks_googlemaps_custom_js_page(){
 	$googlemaps_zoom = mp_core_get_post_meta( $post_id, 'mp_stacks_googlemaps_zoom', 80 );
 	$googlemaps_zoom = round( $googlemaps_zoom / 7 );
 	
+	$googlemaps_draggable = mp_core_get_post_meta_checkbox( $post_id, 'mp_stacks_googlemaps_draggable', true );
+	$googlemaps_draggable = empty( $googlemaps_draggable ) ? 'false' : 'true';
+	
 	//Get the array of markers we should show on this map
 	$markers = mp_core_get_post_meta( $post_id, 'mp_stacks_googlemaps_markers', NULL );
 	//If there are markers to show	, get the default map position using the first marker's values.		
@@ -76,7 +79,7 @@ function mp_stacks_googlemaps_custom_js_page(){
 		var directionsDisplay_' . $post_id . ';
 		var directionsService_' . $post_id . ';
 		var map_' . $post_id . ';
-
+		
 		function mp_stacks_googlemaps_' . $post_id . '_initialize() {
 			
 			mp_stacks_googlemaps_exists = true;
@@ -85,6 +88,7 @@ function mp_stacks_googlemaps_custom_js_page(){
 			directionsDisplay_' . $post_id . ' = new google.maps.DirectionsRenderer();
 			 
 			var mapOptions = {
+				draggable: ' . $googlemaps_draggable . ',
 				scrollwheel: false,
 				center: { lat: ' . $googlemaps_latitude . ', lng: ' . $googlemaps_longitude . '},
 				zoom: ' . $googlemaps_zoom . '
@@ -118,6 +122,9 @@ function mp_stacks_googlemaps_custom_js_page(){
 						$directions_destination = 'new google.maps.LatLng(' . $marker['marker_latitude'] . ', ' . $marker['marker_longitude'] . ')';
 					}
 					
+					$map_icon_width = 100;
+					$map_icon_height = 100;
+						
 					//If this marker should have a custom icon
 					if ( !empty( $marker['marker_image'] ) ){
 						
@@ -125,16 +132,19 @@ function mp_stacks_googlemaps_custom_js_page(){
 						$attachment_id = mp_core_get_attachment_id_from_url( $marker['marker_image'] );
 						$image_attributes = wp_get_attachment_image_src( $attachment_id, 'full' );
 						
+						$map_icon_width = isset( $image_attributes[1] ) ? $image_attributes[1] : 100;
+						$map_icon_height = isset( $image_attributes[2] ) ? $image_attributes[2] : 100;
+						
 						$js_output .= '
 						var image_' . $marker_counter . ' = {
 							url: \'' . $marker['marker_image'] . '\',
 							// Set the width and height to match the width and height of the uploaded image
-							size: new google.maps.Size(' . $image_attributes[1] . ', ' . $image_attributes[2] . '),
+							size: new google.maps.Size(' . $map_icon_width . ', ' . $map_icon_height . '),
 							// The origin for this image is 0,0.
 							origin: new google.maps.Point(0,0),
 							// The anchor for this image is the bottom center of it (when scaled to halfsize for retina)
-							anchor: new google.maps.Point(' . ( $image_attributes[1] /2) / 2 . ', ' . $image_attributes[2] / 2 . '),
-							scaledSize: new google.maps.Size(' . $image_attributes[1]/2 . ', ' . $image_attributes[2]/2 . ')
+							anchor: new google.maps.Point(' . ( $map_icon_width /2) / 2 . ', ' . $map_icon_height / 2 . '),
+							scaledSize: new google.maps.Size(' . $map_icon_width /2 . ', ' . $map_icon_height/2 . ')
 						};';
 					}
 					
@@ -158,14 +168,10 @@ function mp_stacks_googlemaps_custom_js_page(){
 						  $js_output .= '\'<div id="mp-stacks-googlemaps-infowindow-email"><a href="mailto:\'+' . json_encode( $marker['marker_email'] ) . '+\'">\'+' . json_encode( $marker['marker_email'] ) . '+\'</a></div>\'+';
 						}
 						
-						if ( isset( $image_attributes[2] ) ){
-					  		$js_output .= '\'</div>\',
-					  		pixelOffset: new google.maps.Size(0, ' . -($image_attributes[2] / 2) . ')';
-						}
-						else{
-					  		$js_output .= '\'</div>\',
-					  		pixelOffset: new google.maps.Size(0, ' . -30 . ')';
-						}
+						
+					  	$js_output .= '\'</div>\',
+					  	pixelOffset: new google.maps.Size(0, ' . -( $map_icon_height / 2) . ')';
+						
 						
 					  $js_output .= ',position: new google.maps.LatLng(' . $marker['marker_latitude'] . ', ' . $marker['marker_longitude'] . ')
 					});';

@@ -62,6 +62,13 @@ function mp_stacks_googlemaps_create_meta_box(){
 					'field_type' 	=> 'checkbox',
 					'field_value' 	=> '',
 			),
+			array(
+					'field_id'			=> 'mp_stacks_googlemaps_draggable',
+					'field_title' 	=> __( 'Make map "draggable"?', 'mp_stacks_googlemaps'),
+					'field_description' 	=> __( 'Do you want people to be able to drag and look around at other locations on the map?', 'mp_stacks_googlemaps' ) ,
+					'field_type' 	=> 'checkbox',
+					'field_value' 	=> 'mp_stacks_googlemaps_draggable',
+			),
 				array(
 						'field_id'			=> 'marker_title',
 						'field_title' 	=> __( 'Marker Title', 'mp_stacks_googlemaps'),
