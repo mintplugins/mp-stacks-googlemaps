@@ -40,7 +40,30 @@ function mp_stacks_googlemaps_create_meta_box(){
 	 *
 	 */
 	$mp_stacks_googlemaps_items_array = array(
-		
+			array(
+					'field_id'			=> 'mp_stacks_googlemaps_api_key',
+					'field_title' 	=> __( 'Google Maps API Key', 'mp_stacks_googlemaps'),
+					'field_description' 	=> __( 'Enter your Google Maps API Key. Don\'t Have one? 
+					To create your API key:
+						<ol>
+						
+							<li><a href="https://console.developers.google.com/iam-admin/projects" target="_blank">Click here</a> and then click on "Create Project". Call it anything you like. </li>
+							<li>Once you\'ve created the "Project", look for the list of links under "Google Maps APIs". </li>
+							<li>Click on "Google Maps JavaScript API" and then click "Enable". </li>
+							<li>Click "Go to Credentials" - or, on the left sidebar, click "Credentials".</li>
+							<li>Under "Where will you be calling the API from?" select "Web Browser".</li>
+							<li>You\'ll now be on "Step 2". Under "Name" anything you like - possibly the name of your website.</li>
+							<li>Under "Accept requests from these HTTP referrers (web sites)" enter your website\'s exact URL: ' . get_bloginfo( 'wpurl' ) . '</li>
+							<li>Click "Create API Key".</li>
+							<li>Copy the string of text listed beside "API KEY" and paste it below.</li>
+							<li>That\'s it! The rest of the heavy-lifting is done by the MP Stacks + GoogleMaps Add-On.</li>
+				
+				
+						</ol>', 'mp_stacks_googlemaps' ),
+					'field_type' 	=> 'textbox',
+					'field_value' 	=> '',
+					'field_placeholder' 	=> __( 'Your Google Maps API Key', 'mp_stacks_googlemaps' ),
+			),
 			array(
 					'field_id'			=> 'mp_stacks_googlemaps_zoom',
 					'field_title' 	=> __( 'Map Zoom Level', 'mp_stacks_googlemaps'),
