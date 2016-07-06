@@ -60,7 +60,7 @@ function mp_stacks_brick_content_output_googlemaps($default_content_output, $mp_
 		'mp_stacks_refresh_this_script_upon_brick_update' => true 
 	), get_bloginfo( 'wpurl' ) ) ) , array( 'jquery', 'mp_stacks_front_end_js' ), get_post_time( 'U', true, $post_id ), true );
 	
-	$google_api_url = $google_maps_api_key ? 'https://maps.googleapis.com/maps/api/js?key=' . $google_maps_api_key . '&callback=mp_stacks_googlemaps_initialize' : 'https://maps.googleapis.com/maps/api/js?&callback=mp_stacks_googlemaps_initialize';
+	$google_api_url = $google_maps_api_key ? 'https://maps.googleapis.com/maps/api/js?key=' . $google_maps_api_key . '&callback=mp_stacks_googlemaps_initialize' : 'https://maps.googleapis.com/maps/api/js?callback=mp_stacks_googlemaps_initialize';
 	
 	//Enqueue the script from Google Maps in the footer
 	wp_enqueue_script( 'mp_stacks_googlemaps_js', $google_api_url , array( 'jquery', 'mp_stacks_front_end_js', 'mp_stacks_googlemaps_custom_js' ), MP_STACKS_GOOGLEMAPS_VERSION, true );
