@@ -3,8 +3,8 @@ Contributors: johnstonphilip
 Donate link: http://mintplugins.com/
 Tags: message bar, header
 Requires at least: 3.5
-Tested up to: 4.5
-Stable tag: 1.0.0.8
+Tested up to: 4.6
+Stable tag: 1.0.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,7 @@ This section describes how to install the plugin and get it working.
 
 1. Upload the 'mp-stacks-googlemaps' folder to the '/wp-content/plugins/' directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-5. Put Stacks on pages using the "Add Stack"ù button.
+5. Put Stacks on pages using the "Add Stack"ÔøΩ button.
 
 == Frequently Asked Questions ==
 
@@ -31,11 +31,14 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 
 == Changelog ==
 
+= 1.0.0.9 = November 8, 2016
+* Set mime headers for custom JS file
+
 = 1.0.0.8 = July 5, 2016
 * Add requirement for Google API Keys back in. Google now requires API keys for Google Maps to work as of June 2016.
 
 = 1.0.0.7 = May 26, 2016
-* Added option for making the map draggable or not. 
+* Added option for making the map draggable or not.
 
 = 1.0.0.6 = November 14, 2015
 * Removed all API Key things from the plugin as they are not needed for the functionality.
@@ -60,4 +63,4 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 * Disabled map scrolling/zooming
 
 = 1.0.0.0 = March 23, 2015
-* Initial release. 
+* Initial release.
