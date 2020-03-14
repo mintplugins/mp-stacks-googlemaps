@@ -12,7 +12,7 @@
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @author      Philip Johnston
  */
- 
+
 /**
  * Add PostGrid as a Media Type to the dropdown
  *
@@ -21,20 +21,20 @@
  * @param    array $args See link for description.
  * @return   void
  */
-function mp_stacks_googlemaps_create_meta_box(){	
+function mp_stacks_googlemaps_create_meta_box(){
 	/**
 	 * Array which stores all info about the new metabox
 	 *
 	 */
 	$mp_stacks_googlemaps_add_meta_box = array(
-		'metabox_id' => 'mp_stacks_googlemaps_metabox', 
-		'metabox_title' => __( '"GoogleMaps" Content-Type', 'mp_stacks_googlemaps'), 
-		'metabox_posttype' => 'mp_brick', 
-		'metabox_context' => 'advanced', 
+		'metabox_id' => 'mp_stacks_googlemaps_metabox',
+		'metabox_title' => __( '"GoogleMaps" Content-Type', 'mp_stacks_googlemaps'),
+		'metabox_posttype' => 'mp_brick',
+		'metabox_context' => 'advanced',
 		'metabox_priority' => 'low' ,
 		'metabox_content_via_ajax' => true,
 	);
-	
+
 	/**
 	 * Array which stores all info about the options within the metabox
 	 *
@@ -43,22 +43,23 @@ function mp_stacks_googlemaps_create_meta_box(){
 			array(
 					'field_id'			=> 'mp_stacks_googlemaps_api_key',
 					'field_title' 	=> __( 'Google Maps API Key', 'mp_stacks_googlemaps'),
-					'field_description' 	=> __( 'Enter your Google Maps API Key. Don\'t Have one? 
+					'field_description' 	=> __( 'Enter your Google Maps API Key. Don\'t Have one?
 					To create your API key:
 						<ol>
-						
+
 							<li><a href="https://console.developers.google.com/iam-admin/projects" target="_blank">Click here</a> and then click on "Create Project". Call it anything you like. </li>
-							<li>Once you\'ve created the "Project", look for the list of links under "Google Maps APIs". </li>
-							<li>Click on "Google Maps JavaScript API" and then click "Enable". </li>
-							<li>Click "Go to Credentials" - or, on the left sidebar, click "Credentials".</li>
-							<li>Under "Where will you be calling the API from?" select "Web Browser".</li>
-							<li>You\'ll now be on "Step 2". Under "Name" anything you like - possibly the name of your website.</li>
-							<li>Under "Accept requests from these HTTP referrers (web sites)" enter your website\'s exact URL: ' . get_bloginfo( 'wpurl' ) . '</li>
-							<li>Click "Create API Key".</li>
-							<li>Copy the string of text listed beside "API KEY" and paste it below.</li>
+							<li>Once you\'ve created the "Project", <a href="https://cloud.google.com/maps-platform/?__utma=102347093.1165065208.1552054115.1555156325.1555156325.1&__utmb=102347093.0.10.1555156325&__utmc=102347093&__utmx=-&__utmz=102347093.1555156325.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided)&__utmv=-&__utmk=185730217&_ga=2.72606291.116113862.1555090651-1165065208.1552054115#get-started" target="_blank">click here</a>. </li>
+							<li>Select "Maps"</li>
+							<li>Select the "project" you created in step 1.</li>
+							<li>Follow the steps there until you see your API Key</li>
+							<li>Copy your API Key and paste it here</li>
+							<li>Back on the Google tab, click the notice that says "To improve your app\'s security, restrict this key\'s usage"</li>
+							<li>Under "Application restrictions" choose "HTTP referrers (web sites)"</li>
+							<li>Under "Website restrictions", type your domain (' . get_bloginfo( 'wpurl' ) . ')</li>
+							<li>Click "save" at the bottom of the Google page.</li>
 							<li>That\'s it! The rest of the heavy-lifting is done by the MP Stacks + GoogleMaps Add-On.</li>
-				
-				
+
+
 						</ol>', 'mp_stacks_googlemaps' ),
 					'field_type' 	=> 'textbox',
 					'field_value' 	=> '',
@@ -163,24 +164,24 @@ function mp_stacks_googlemaps_create_meta_box(){
 					'field_type' 	=> 'basictext',
 					'field_value' 	=> '0',
 			),
-		
+
 	);
-	
-	
+
+
 	/**
 	 * Custom filter to allow for add-on plugins to hook in their own data for add_meta_box array
 	 */
 	$mp_stacks_googlemaps_add_meta_box = has_filter('mp_stacks_googlemaps_meta_box_array') ? apply_filters( 'mp_stacks_googlemaps_meta_box_array', $mp_stacks_googlemaps_add_meta_box) : $mp_stacks_googlemaps_add_meta_box;
-	
+
 	//Globalize the and populate mp_stacks_features_items_array (do this before filter hooks are run)
 	global $global_mp_stacks_googlemaps_items_array;
 	$global_mp_stacks_googlemaps_items_array = $mp_stacks_googlemaps_items_array;
-	
+
 	/**
-	 * Custom filter to allow for add on plugins to hook in their own extra fields 
+	 * Custom filter to allow for add on plugins to hook in their own extra fields
 	 */
 	$mp_stacks_googlemaps_items_array = has_filter('mp_stacks_googlemaps_items_array') ? apply_filters( 'mp_stacks_googlemaps_items_array', $mp_stacks_googlemaps_items_array) : $mp_stacks_googlemaps_items_array;
-	
+
 	/**
 	 * Create Metabox class
 	 */
