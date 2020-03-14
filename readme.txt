@@ -3,8 +3,8 @@ Contributors: johnstonphilip
 Donate link: http://mintplugins.com/
 Tags: message bar, header
 Requires at least: 3.5
-Tested up to: 4.6
-Stable tag: 1.0.0.9
+Tested up to: 5.4
+Stable tag: 1.0.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,6 +30,9 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 
 
 == Changelog ==
+
+= 1.0.1.0 = March 14, 2020
+* Fix height setting for map.
 
 = 1.0.0.9 = November 8, 2016
 * Set mime headers for custom JS file
